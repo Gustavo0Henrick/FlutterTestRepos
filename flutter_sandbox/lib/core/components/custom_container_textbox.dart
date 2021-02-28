@@ -15,7 +15,7 @@ class CustomContainerTextBox extends StatelessWidget {
         autofocus: false,
         controller: controller,
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
           labelText: txt,
         ),
       ),

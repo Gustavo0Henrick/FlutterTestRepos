@@ -14,10 +14,11 @@ class CustomButton extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              textStyle: TextStyle(fontSize: font),
-              primary: Colors.cyan,
-              onPrimary: Colors.white,
-            ),
+                textStyle: TextStyle(fontSize: font),
+                primary: Colors.green,
+                onPrimary: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18))),
             onPressed: () {
               print('Entrou');
             },

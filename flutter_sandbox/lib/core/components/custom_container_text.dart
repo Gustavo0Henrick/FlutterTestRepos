@@ -15,7 +15,7 @@ class CustomContainerText extends StatelessWidget {
         child: Text(
           txt,
           style: TextStyle(
-              color: Colors.cyan, fontWeight: FontWeight.w500, fontSize: font),
+              color: Colors.green, fontWeight: FontWeight.w500, fontSize: font),
         ));
   }
 }
