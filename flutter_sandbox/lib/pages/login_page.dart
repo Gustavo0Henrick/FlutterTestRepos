@@ -3,6 +3,7 @@ import 'package:flutter_sandbox/core/components/custom_button.dart';
 import 'package:flutter_sandbox/core/components/custom_button_text_.dart';
 import 'package:flutter_sandbox/core/components/custom_container_text.dart';
 import 'package:flutter_sandbox/core/components/custom_container_textbox.dart';
+import 'package:flutter_sandbox/core/components/images.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -25,11 +26,13 @@ class _State extends State<LoginPage> {
                 txt: 'Nome de Usuario',
                 controller: nameController,
                 myIcon: Icon(Icons.person),
+                ocultar: false,
               ),
               CustomContainerTextBox(
                 txt: 'Senha',
                 controller: passwordController,
                 myIcon: Icon(Icons.lock),
+                ocultar: true,
               ),
               CustomButtonText(
                 txt: 'Esqueci a senha',
