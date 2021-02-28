@@ -12,7 +12,7 @@ class CustomContainerTextBox extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(10),
       child: TextField(
-        autofocus: true,
+        autofocus: false,
         controller: controller,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
