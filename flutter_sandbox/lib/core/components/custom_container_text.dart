@@ -11,7 +11,7 @@ class CustomContainerText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.all(50),
+        padding: EdgeInsets.all(65),
         child: Text(
           txt,
           style: TextStyle(

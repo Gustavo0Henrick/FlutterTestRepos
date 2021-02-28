@@ -16,23 +16,21 @@ class _State extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Demonstração Tela de Login',
-            style: TextStyle(
-              color: Colors.white,
-            )),
-        backgroundColor: Colors.green,
-      ),
       body: Padding(
           padding: EdgeInsets.all(10),
           child: ListView(
             children: <Widget>[
               CustomContainerText(txt: 'Login', font: 50), //container aqui
               CustomContainerTextBox(
-                  txt: 'Nome de Usuario', controller: nameController),
+                txt: 'Nome de Usuario',
+                controller: nameController,
+                myIcon: Icon(Icons.person),
+              ),
               CustomContainerTextBox(
-                  txt: 'Senha', controller: passwordController),
+                txt: 'Senha',
+                controller: passwordController,
+                myIcon: Icon(Icons.lock),
+              ),
               CustomButtonText(
                 txt: 'Esqueci a senha',
                 font: 16,
