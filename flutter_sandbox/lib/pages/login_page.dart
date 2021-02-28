@@ -54,7 +54,7 @@ class _State extends State<LoginPage> {
               ))
             ],
           )),
-      backgroundColor: Colors.cyan[50],
+      backgroundColor: Colors.white,
     );
   }
 }
