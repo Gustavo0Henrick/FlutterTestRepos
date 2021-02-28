@@ -1,1 +1,1 @@
-String DuasGarotas = "../images/duas_garotas_celular.jpg";
+String duasGarotas = "../images/duas_garotas_celular.jpg";

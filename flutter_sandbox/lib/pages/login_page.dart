@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sandbox/core/components/custom_button.dart';
 import 'package:flutter_sandbox/core/components/custom_button_text_.dart';
 import 'package:flutter_sandbox/core/components/custom_container_text.dart';
-import 'package:flutter_sandbox/core/components/custom_container_textbox.dart';
-import 'package:flutter_sandbox/core/components/images.dart';
+
+import 'package:flutter_sandbox/core/components/custom_input_box.dart';
+import 'package:flutter_sandbox/core/components/custom_password_box.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -21,37 +22,19 @@ class _State extends State<LoginPage> {
           padding: EdgeInsets.all(10),
           child: ListView(
             children: <Widget>[
-              CustomContainerText(txt: 'Login', font: 50), //container aqui
-              CustomContainerTextBox(
-                txt: 'Nome de Usuario',
-                controller: nameController,
-                myIcon: Icon(Icons.person),
-                ocultar: false,
-              ),
-              CustomContainerTextBox(
-                txt: 'Senha',
-                controller: passwordController,
-                myIcon: Icon(Icons.lock),
-                ocultar: true,
-              ),
+              CustomContainerText(txt: 'Login', font: 50),
+              CustomInputBox(
+                  txt: 'Nome de Usuario',
+                  controller: nameController), //box aqui
+              CustomPassowordBox(txt: 'Senha', controller: passwordController),
               CustomButtonText(
-                txt: 'Esqueci a senha',
-                font: 16,
-                onPressed: apertou,
-              ), //botao aqui
-              CustomButton(
-                txt: 'Entrar',
-                font: 16,
-              ), //botao aqui
+                  txt: 'Esqueci a senha', font: 16, onPressed: apertou),
+              CustomButton(txt: 'Entrar', font: 16),
               Container(
                   child: Row(
                 children: <Widget>[
                   Text('Não tem uma conta?'),
-                  CustomButtonText(
-                    txt: 'Criar',
-                    font: 20,
-                    onPressed: apertou,
-                  ),
+                  CustomButtonText(txt: 'Criar', font: 20, onPressed: apertou),
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
               ))
