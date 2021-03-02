@@ -26,8 +26,8 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.blue[275],
       ),
-      body: SingleChildScrollView(
-        child: Column(
+      body: ListView(children: [
+        Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-      ),
+      ]),
       backgroundColor: Colors.blue[50],
     );
   }
