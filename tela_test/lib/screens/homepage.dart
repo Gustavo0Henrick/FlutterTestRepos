@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tela_test/core/components/card_custom_container_text.dart';
 import 'package:tela_test/core/components/custom_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -7,6 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +18,43 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             color: Colors.white,
             icon: Icon(Icons.add),
-            onPressed: addCard,
+            onPressed: () {
+              showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                        title: Text('Adionar cartão:'),
+                        content: CustomContainerTextBox(
+                          txt: 'Digite aqui...',
+                          ocultar: false,
+                          controller: nameController,
+                        ),
+                        actions: [
+                          Row(children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  right: 60.0, left: 10.0),
+                              child: TextButton(
+                                onPressed: () {},
+                                child: Text('Descartar'),
+                                style: TextButton.styleFrom(
+                                  primary: Colors.red,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  right: 10.0, left: 60.0),
+                              child: TextButton(
+                                child: Text('Adicionar'),
+                                onPressed: () {
+                                  addCard();
+                                },
+                              ),
+                            ),
+                          ])
+                        ],
+                      ));
+            },
           ),
         ],
         title: Center(
@@ -26,7 +65,8 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.blue[275],
       ),
-      body: ListView(children: [
+      body: ListView(
+          children: [
         Column(
           children: [
             Padding(
@@ -71,10 +111,12 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-      ]),
+      ].toList()),
       backgroundColor: Colors.blue[50],
     );
   }
 }
 
-addCard() {}
+addCard() {
+  return CustomCard(txt: 'teste', alt: 150, lar: 250);
+}
