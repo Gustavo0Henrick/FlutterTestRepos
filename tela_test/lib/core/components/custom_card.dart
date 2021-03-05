@@ -16,17 +16,41 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: alt,
-      width: lar,
-      child: Card(
-        elevation: 5,
-        color: Colors.white,
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Center(
-            child: Text(txt),
+      child: Column(
+        children: [
+          Card(
+            margin: EdgeInsets.all(5.0),
+            elevation: 5,
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ListTile(
+                  leading: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.favorite),
+                  ),
+                  title: Text('Titulo do Cartão'),
+                  subtitle: Text('Texto Resumido do Cartão'),
+                ),
+                ButtonTheme(
+                  // make buttons use the appropriate styles for cards
+                  child: ButtonBar(
+                    children: <Widget>[
+                      TextButton(
+                        child: const Text('Ler Mais'),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-          ElevatedButton(onPressed: () {}, child: Text('Botão')),
-        ]),
+        ],
       ),
     );
   }

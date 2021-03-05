@@ -14,49 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-            color: Colors.white,
-            icon: Icon(Icons.add),
-            onPressed: () {
-              showDialog<String>(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                        title: Text('Adionar cartão:'),
-                        content: CustomContainerTextBox(
-                          txt: 'Digite aqui...',
-                          ocultar: false,
-                          controller: nameController,
-                        ),
-                        actions: [
-                          Row(children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 60.0, left: 10.0),
-                              child: TextButton(
-                                onPressed: () {},
-                                child: Text('Descartar'),
-                                style: TextButton.styleFrom(
-                                  primary: Colors.red,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 10.0, left: 60.0),
-                              child: TextButton(
-                                child: Text('Adicionar'),
-                                onPressed: () {
-                                  addCard();
-                                },
-                              ),
-                            ),
-                          ])
-                        ],
-                      ));
-            },
-          ),
-        ],
+        actions: [],
         title: Center(
           child: Text(
             'Card view demo',
@@ -74,8 +32,8 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: CustomCard(
                   txt: 'Primeiro Cartão',
-                  alt: 150,
-                  lar: 250,
+                  alt: 360,
+                  lar: 350,
                 ),
               ),
             ),
@@ -84,8 +42,8 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: CustomCard(
                   txt: 'Segundo Cartão',
-                  alt: 150,
-                  lar: 250,
+                  alt: 200,
+                  lar: 350,
                 ),
               ),
             ),
@@ -94,8 +52,8 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: CustomCard(
                   txt: 'Terceiro Cartão',
-                  alt: 150,
-                  lar: 250,
+                  alt: 200,
+                  lar: 350,
                 ),
               ),
             ),
@@ -104,8 +62,8 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: CustomCard(
                   txt: 'Quarto Cartão',
-                  alt: 150,
-                  lar: 250,
+                  alt: 200,
+                  lar: 350,
                 ),
               ),
             )
@@ -120,3 +78,35 @@ class _HomePageState extends State<HomePage> {
 addCard() {
   return CustomCard(txt: 'teste', alt: 150, lar: 250);
 }
+
+/*Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        margin: EdgeInsets.all(10),
+        elevation: 5,
+        color: Colors.white,
+        child: Container(
+          height: 250,
+          width: 350,
+          child: Column(children: [
+            ListTile(
+              leading: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.favorite),
+              ),
+              title: Text('TItulo do Cartão'),
+              subtitle: Text('Texto resumido do cartão'),
+            ),
+            ButtonTheme(
+              child: ButtonBar(
+                children: [
+                  TextButton(
+                    child: const Text('Ler mais'),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+          ]),
+        ));*/
