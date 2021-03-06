@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: CustomCard(
                   txt: 'Primeiro Cartão',
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: CustomCard(
                   txt: 'Segundo Cartão',
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: CustomCard(
                   txt: 'Terceiro Cartão',
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: CustomCard(
                   txt: 'Quarto Cartão',

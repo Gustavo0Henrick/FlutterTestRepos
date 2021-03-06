@@ -19,7 +19,6 @@ class CustomCard extends StatelessWidget {
       child: Column(
         children: [
           Card(
-            margin: EdgeInsets.all(5.0),
             elevation: 5,
             color: Colors.white,
             shape: RoundedRectangleBorder(
@@ -27,7 +26,7 @@ class CustomCard extends StatelessWidget {
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
+              children: [
                 ListTile(
                   leading: IconButton(
                     onPressed: () {},
@@ -41,7 +40,7 @@ class CustomCard extends StatelessWidget {
                   child: ButtonBar(
                     children: <Widget>[
                       TextButton(
-                        child: const Text('Ler Mais'),
+                        child: Text('Ler Mais'),
                         onPressed: () {},
                       ),
                     ],
