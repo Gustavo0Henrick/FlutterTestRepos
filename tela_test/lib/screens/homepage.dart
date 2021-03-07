@@ -1,8 +1,77 @@
 import 'package:flutter/material.dart';
-import 'package:tela_test/core/components/card_custom_container_text.dart';
+import 'package:tela_test/core/color.dart';
+
+import 'package:tela_test/core/components/custom_body.dart';
 import 'package:tela_test/core/components/custom_card.dart';
 
+import 'dart:ui';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.deep_skyblue,
+        title: Center(child: Text('Card View Demo')),
+        elevation: 0,
+      ),
+      backgroundColor: AppColors.alice_blue,
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppColors.deep_skyblue,
+        elevation: 0,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Inicio',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favoritos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.loupe),
+            label: 'Descobrir',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: AppColors.white,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+/*class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -21,56 +90,15 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(color: Colors.white),
           ),
         ),
-        backgroundColor: Colors.blue[275],
+        backgroundColor: AppColors.main_color,
       ),
-      body: ListView(
-          children: [
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Center(
-                child: CustomCard(
-                  txt: 'Primeiro Cartão',
-                  alt: 360,
-                  lar: 350,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Center(
-                child: CustomCard(
-                  txt: 'Segundo Cartão',
-                  alt: 200,
-                  lar: 350,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Center(
-                child: CustomCard(
-                  txt: 'Terceiro Cartão',
-                  alt: 200,
-                  lar: 350,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Center(
-                child: CustomCard(
-                  txt: 'Quarto Cartão',
-                  alt: 200,
-                  lar: 350,
-                ),
-              ),
-            )
-          ],
+      body: SingleChildScrollView(
+          child: Column(children: [
+        CustomBody(
+          body: CardList(),
         ),
-      ].toList()),
-      backgroundColor: Colors.blue[50],
+      ])),
+      backgroundColor: AppColors.alice_blue,
     );
   }
 }
@@ -79,7 +107,7 @@ addCard() {
   return CustomCard(txt: 'teste', alt: 150, lar: 250);
 }
 
-/*Card(
+Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
