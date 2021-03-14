@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tela_test/core/color.dart';
 
 import 'package:tela_test/core/components/custom_body.dart';
+import 'package:tela_test/core/routes.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -151,6 +152,7 @@ class _HomePageState extends State<HomePage> {
                   width: 150,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                      elevation: 0,
                       primary: AppColors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -174,13 +176,21 @@ class _HomePageState extends State<HomePage> {
                   width: 150,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                      elevation: 0,
                       side: BorderSide(color: AppColors.white),
                       primary: AppColors.deep_skyblue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AppRoutes.cadastro));
+                      });
+                    },
                     child: Text(
                       'Cadastrar',
                       style: TextStyle(
