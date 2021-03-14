@@ -36,6 +36,7 @@ dev_dependencies:
 
 flutter_native_splash:
   color: 00BFFF
+  image: assets/images/book.png
 
 flutter:
   # The following line ensures that the Material Icons font is

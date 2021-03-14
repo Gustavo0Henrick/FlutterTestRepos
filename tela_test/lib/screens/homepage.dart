@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tela_test/core/color.dart';
 
 import 'package:tela_test/core/components/custom_body.dart';
-import 'package:tela_test/core/components/custom_card.dart';
-
-import 'dart:ui';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,128 +9,193 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+  bool obscure = true;
+  bool _value = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.deep_skyblue,
-        title: Center(child: Text('Card View Demo')),
+        title: Center(child: Text('Demo')),
         elevation: 0,
       ),
-      backgroundColor: AppColors.alice_blue,
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppColors.deep_skyblue,
-        elevation: 0,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Inicio',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favoritos',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.loupe),
-            label: 'Descobrir',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: AppColors.white,
-        onTap: _onItemTapped,
-      ),
-    );
-  }
-}
-
-/*class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  TextEditingController nameController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [],
-        title: Center(
-          child: Text(
-            'Card view demo',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        backgroundColor: AppColors.main_color,
-      ),
-      body: SingleChildScrollView(
-          child: Column(children: [
-        CustomBody(
-          body: CardList(),
-        ),
-      ])),
-      backgroundColor: AppColors.alice_blue,
-    );
-  }
-}
-
-addCard() {
-  return CustomCard(txt: 'teste', alt: 150, lar: 250);
-}
-
-Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        margin: EdgeInsets.all(10),
-        elevation: 5,
-        color: Colors.white,
-        child: Container(
-          height: 250,
-          width: 350,
-          child: Column(children: [
-            ListTile(
-              leading: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.favorite),
+      backgroundColor: AppColors.deep_skyblue,
+      body: CustomBody(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Container(
+                  padding: EdgeInsets.only(top: 70),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                        color: AppColors.white,
+                        fontSize: 50,
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
               ),
-              title: Text('TItulo do Cartão'),
-              subtitle: Text('Texto resumido do cartão'),
-            ),
-            ButtonTheme(
-              child: ButtonBar(
+              Container(
+                padding: EdgeInsets.only(left: 50, top: 60),
+                child: Text(
+                  'Email',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.white,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 15, left: 50),
+                child: Container(
+                  height: 30,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10, bottom: 2),
+                    child: TextFormField(
+                      cursorColor: AppColors.deep_skyblue,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 50, top: 35),
+                child: Text(
+                  'Senha',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.white,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 15, left: 50),
+                child: Container(
+                  height: 30,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10, bottom: 2),
+                    child: TextFormField(
+                      cursorColor: AppColors.deep_skyblue,
+                      obscureText: obscure,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              obscure = !obscure;
+                            });
+                          },
+                          child: obscure
+                              ? Icon(
+                                  Icons.visibility,
+                                  color: AppColors.deep_skyblue,
+                                )
+                              : Icon(
+                                  Icons.visibility_off,
+                                  color: AppColors.deep_skyblue,
+                                ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                    child: const Text('Ler mais'),
-                    onPressed: () {},
+                  Container(
+                    padding: EdgeInsets.only(top: 15),
+                    child: Checkbox(
+                      onChanged: (bool newValue) {
+                        setState(() {
+                          _value = !_value;
+                        });
+                      },
+                      activeColor: AppColors.white,
+                      value: _value,
+                      checkColor: AppColors.deep_skyblue,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 15),
+                    child: Text(
+                      'Lembrar de mim',
+                      style: TextStyle(
+                          color: AppColors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ],
               ),
-            ),
-          ]),
-        ));*/
+              Center(
+                child: Container(
+                  padding: EdgeInsets.only(top: 25),
+                  width: 150,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      'Entrar',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.deep_skyblue,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Center(
+                child: Container(
+                  padding: EdgeInsets.only(top: 10),
+                  width: 150,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      side: BorderSide(color: AppColors.white),
+                      primary: AppColors.deep_skyblue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      'Cadastrar',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
