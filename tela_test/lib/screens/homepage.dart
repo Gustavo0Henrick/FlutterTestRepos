@@ -12,10 +12,43 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool obscure = true;
   bool _value = false;
+
+  showAlertDialog2(BuildContext context) {
+    Widget okButton = TextButton(
+      child: Text("Fechar"),
+      onPressed: () {
+        setState(() {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => AppRoutes.login));
+        });
+      },
+    );
+
+    AlertDialog alerta = AlertDialog(
+      title: Center(child: Text("Login")),
+      content: Text("Login realizado com sucesso."),
+      
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alerta;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppColors.deep_skyblue,
         title: Center(child: Text('Demo')),
         elevation: 0,
@@ -158,7 +191,11 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        showAlertDialog2(context);
+                      });
+                    },
                     child: Text(
                       'Entrar',
                       style: TextStyle(

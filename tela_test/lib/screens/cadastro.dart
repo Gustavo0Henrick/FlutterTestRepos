@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tela_test/core/color.dart';
 import 'package:tela_test/core/components/custom_body.dart';
+import 'package:tela_test/core/components/custom_card_alert.dart';
 import 'package:tela_test/core/routes.dart';
 
 class Cadastro extends StatefulWidget {
@@ -10,6 +11,36 @@ class Cadastro extends StatefulWidget {
 
 class _CadastroState extends State<Cadastro> {
   bool obscure = true;
+  showAlertDialog1(BuildContext context) {
+    Widget okButton = TextButton(
+      child: Text("Fechar"),
+      onPressed: () {
+        setState(() {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => AppRoutes.login));
+        });
+      },
+    );
+
+    AlertDialog alerta = AlertDialog(
+      title: Text("Cadastro"),
+      content: Text("Cadastro realizado com sucesso."),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alerta;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -244,7 +275,11 @@ class _CadastroState extends State<Cadastro> {
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          showAlertDialog1(context);
+                        });
+                      },
                       child: Text(
                         'Salvar',
                         style: TextStyle(
